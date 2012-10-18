@@ -1,5 +1,5 @@
 
-package pruthreads2;
+package pruthreads2aux;
 
 /**
  * <p>Las instancias de esta clase son los paquetes que se ingresan en 
@@ -7,7 +7,7 @@ package pruthreads2;
  * 
  * @author iconstenla
  */
-public class Paquete implements Comparable<Paquete> {
+public class Paquete {
 	private String productor;
 	private int prioridad;
 	
@@ -37,10 +37,5 @@ public class Paquete implements Comparable<Paquete> {
 	 */
 	public void setPrioridad(int prioridad) {
 		this.prioridad = prioridad;
-	}
-
-	@Override
-	public int compareTo(Paquete o) {
-		return prioridad - o.getPrioridad();
 	}
 }

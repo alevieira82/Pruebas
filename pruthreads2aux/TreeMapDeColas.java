@@ -1,4 +1,4 @@
-package pruthreads2;
+package pruthreads2aux;
 //
 //package pruthreads2;
 //
@@ -22,7 +22,7 @@ package pruthreads2;
 //	
 //	/**
 //	 * Comment for <code>MAX_PAQUETES</code>
-//	 * <p>Cantidad mï¿½xima de paquetes que en total en todas las colas de prioridades.</p>
+//	 * <p>Cantidad máxima de paquetes que en total en todas las colas de prioridades.</p>
 //	 */
 //	private static final int MAX_PAQUETES = 100000;
 //	
@@ -87,7 +87,7 @@ package pruthreads2;
 //			}
 //			if(canAdd)
 //				break;			
-//			waitConsume();		//Se alcanzï¿½ la cantidad mï¿½xima de paquetes
+//			waitConsume();		//Se alcanzó la cantidad máxima de paquetes
 //		}		
 //		notifyProduce();	//Notifica paquete ingresado
 //	}
@@ -117,7 +117,7 @@ package pruthreads2;
 //	 * <p>Devuelve el primer paquete de la cola con mayor prioridad. 
 //	 * Si no hay paquetes en ninguna cola devuelve null</p>
 //	 * 
-//	 * @return Devuelve null o el primer paquete de la cola mï¿½s prioritaria
+//	 * @return Devuelve null o el primer paquete de la cola más prioritaria
 //	 */
 //	public Paquete sacarPrimero(){
 //		Paquete p = null;
@@ -160,7 +160,7 @@ package pruthreads2;
 //	
 //	
 //	/**
-//	 * <p>Espera que se consuma algï¿½n paquete.</p>
+//	 * <p>Espera que se consuma algún paquete.</p>
 //	 * 
 //	 */
 //	private void waitConsume() {
@@ -174,7 +174,7 @@ package pruthreads2;
 //	}
 //	
 //	/**
-//	 * <p>Espera que se ingrese algï¿½n paquete en las colas de prioridad.</p> 
+//	 * <p>Espera que se ingrese algún paquete en las colas de prioridad.</p> 
 //	 * 
 //	 */
 //	public void waitProduce() {
@@ -186,7 +186,7 @@ package pruthreads2;
 //	}
 //	
 //	/**
-//	 * <p>Notifica que se consumiï¿½ un paquete de las colas de prioridad.</p>
+//	 * <p>Notifica que se consumió un paquete de las colas de prioridad.</p>
 //	 * 
 //	 */
 //	public void notifyConsume() {

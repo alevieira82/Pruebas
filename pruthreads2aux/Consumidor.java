@@ -1,11 +1,12 @@
-package pruthreads2;
+
+package pruthreads2aux;
 
 import java.util.concurrent.*;
 
 
 
 /**
- * <p>Las instancias de estï¿½ clase consumen los paquetes del treeMap
+ * <p>Las instancias de está clase consumen los paquetes del treeMap
  * de mayor prioridad y lleva una estadistica de los paquetes de cada 
  * prioridad que se van consumiendo</p>
  * 
@@ -14,7 +15,7 @@ import java.util.concurrent.*;
 public class Consumidor implements Runnable {
 	
 	private String nombre;
-	private BlockingQueue<Paquete> colaProductos;
+	private BlockingQueue <Node> colaProductos;
 	private Paquete paq;
 	private int delay;	
 
@@ -24,7 +25,7 @@ public class Consumidor implements Runnable {
 	 * @param delay Tiempo de sleep() entre paquetes consumidos 
 	 * @param treeMap TreeMap del cual va a consumir paquetes
 	 */
-	public Consumidor( String nombre, int delay, BlockingQueue<Paquete> colaProductos){
+	public Consumidor( String nombre, int delay, BlockingQueue colaProductos){
 		super();
 		this.nombre = nombre;
 		this.colaProductos = colaProductos;
@@ -37,12 +38,11 @@ public class Consumidor implements Runnable {
 		while(true){			
 //			paq = treeMap.desencolar();
 //			treeMap.incrementarEst(paq.getPrioridad());	
+			paq = colaProductos.take();
 			try {
-				paq = colaProductos.take();
 				Thread.sleep(delay);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			}catch( InterruptedException e) {
+				e.printStackTrace();				
 			}
 		}	
 	}

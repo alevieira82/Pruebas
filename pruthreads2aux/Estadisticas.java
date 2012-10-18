@@ -1,4 +1,4 @@
-package pruthreads2;
+package pruthreads2aux;
 //
 //package pruthreads2;
 //

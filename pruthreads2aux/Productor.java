@@ -1,4 +1,4 @@
-package pruthreads2;
+package pruthreads2aux;
 
 import java.util.Random;
 import java.util.concurrent.*;
@@ -16,7 +16,7 @@ public class Productor implements Runnable{
 	
 	public static final int MAX_PRIORIDADES = 10;
 	private String nombre;
-	private BlockingQueue<Paquete> colaProductos;
+	private BlockingQueue <Node> colaProductos;
 	private int delay;
 	private static Random ran = new Random(); //Semilla
 	
@@ -25,7 +25,8 @@ public class Productor implements Runnable{
 	 * @param delay Tiempo que permanece en sleep() entre produccion de paquetes
 	 * @param treeMap treeMap de colas en el que ingresa los paquetes este productor
 	 */
-	public Productor(String nombre, int delay, BlockingQueue<Paquete> colaProductos){
+	public Productor(String nombre, int delay, BlockingQueue colaProductos){
+		super();
 		this.nombre = nombre;
 		this.delay = delay;
 		this.colaProductos=colaProductos;
@@ -33,7 +34,7 @@ public class Productor implements Runnable{
 	
 	
 	/**
-	 * @return Devuelve un nï¿½mero entero al azar entre 1 y <code>MAX_PRIORIDADES</code>
+	 * @return Devuelve un número entero al azar entre 1 y <code>MAX_PRIORIDADES</code>
 	 */
 	public int getRandomNumber() {
 		synchronized(ran) {
@@ -49,12 +50,12 @@ public class Productor implements Runnable{
 			iRandom = getRandomNumber();
 			Paquete prod = new Paquete(nombre, iRandom);					
 			
-			try {
-				colaProductos.put(prod);
+//			treeMap.encolar(prod, prod.getPrioridad());
+			colaProductos.put();
+			try{
 				Thread.sleep(delay);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			}catch( InterruptedException e) {
+				e.printStackTrace();
 			}
 		}				
 	}
